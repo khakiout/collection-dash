@@ -1,0 +1,14 @@
+#game {
+	text-align: center;
+}
+#field {
+	background: lightgreen;
+	width: 500px;
+}
+#field .tiles {
+	border: 1px solid green;
+	background: lightgreen;
+	display: inline-block;
+	height: 125px;
+	width: 125px;
+}
