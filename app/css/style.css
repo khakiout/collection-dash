@@ -5,8 +5,19 @@
 	background: lightgreen;
 	width: 500px;
 }
+#field .tiles.tile1 {
+	background: url(../img/1.png) no-repeat 50%;
+	background-size: 75px;
+}
+#field .tiles.tile2 {
+	background: url(../img/2.png) no-repeat 50%;
+	background-size: 75px;
+}
+#field .tiles.tile3 {
+	background: url(../img/3.png) no-repeat 50%;
+	background-size: 75px;
+}
 #field .tiles {
-	border: 1px solid green;
 	background: lightgreen;
 	display: inline-block;
 	height: 125px;

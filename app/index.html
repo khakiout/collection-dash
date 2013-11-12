@@ -23,13 +23,15 @@
     			Score: {{score}}<br/>
     			Time: {{time}}<br/>
     			<button data-ng-click="stop()">Stop</button>
+    			<div data-ng-show="time==0">GAME OVER</div>
     		</div>
 	    	<div id="field">
 	    		<div data-ng-repeat="tile in tiles" class="tiles tile{{tile.goods}}" 
 	    			data-ng-click="receive(tile)">
-	    			{{tile.goods}}
+<!-- 	    			{{tile.goods}} -->
 	    		</div>
 	    	</div>
+	    	<div>Icons from Icojam (<a href="http://www.icojam.com/blog/?p=589#more-589" target="_blank">link</a>)</div>
     	</div>
     </div>
 

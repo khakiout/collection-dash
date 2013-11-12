@@ -45,6 +45,9 @@ game.controller('GameCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 	  };
     $scope.countdown();
 	$scope.receive = function(tile) {
+		if ($scope.time == 0) {
+			return;
+		}
 		if (tile.goods != 0) {
 			$scope.score++;
 			tile.goods = 0;
@@ -53,7 +56,9 @@ game.controller('GameCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 	};
 	
 	$scope.stop = function() {
-		clearTiles();
+//		clearTiles();
+		$scope.time = 0;
+		$timeout.cancel(stop);
 		clearInterval(generator);
 	};
 }]);
