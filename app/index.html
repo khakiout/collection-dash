@@ -20,7 +20,9 @@
     <div id="main_wrapper">
     	<div id="game">
     		<div>
-    			Score: {{score}}
+    			Score: {{score}}<br/>
+    			Time: {{time}}<br/>
+    			<button data-ng-click="stop()">Stop</button>
     		</div>
 	    	<div id="field">
 	    		<div data-ng-repeat="tile in tiles" class="tiles tile{{tile.goods}}" 
