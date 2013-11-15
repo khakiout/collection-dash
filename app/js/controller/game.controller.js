@@ -1,35 +1,15 @@
 'use strict';
 
-game.controller('GameCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+game.controller('GameCtrl', ['$scope', '$timeout', 'Tiles', function($scope, $timeout, Tiles) {
+	var tilesLength = 25;
 	$scope.tiles = [];
 	$scope.score = 0;
-	$scope.time = 10;
+	$scope.time = 60;
 	
-	function randomizeTiles() {
-		$scope.tiles = [];
-		
-		for (var i = 0; i < 16; i++) {
-			var goods = Math.floor((Math.random()*4));
-			var tile = {
-					received: false,
-					goods: goods
-			};
-			
-			$scope.tiles.push(tile);
-		}
-	}
-	
-	function clearTiles() {
-		for (var i = 0; i < 16; i++) {
-			var tile = $scope.tiles[i];
-			tile.goods = 0;
-		}
-	}
-	randomizeTiles();
-	
+	$scope.tiles = Tiles.generateTiles(tilesLength);
 	var generator = setInterval(function(){
-		randomizeTiles();
-    }, 3000);
+		$scope.tiles = Tiles.generateTiles(tilesLength);
+    }, 1000);
 
 	var stop;
 	$scope.countdown = function() {
@@ -43,7 +23,6 @@ game.controller('GameCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 	      }
 	    }, 1000);
 	  };
-    $scope.countdown();
 	$scope.receive = function(tile) {
 		if ($scope.time == 0) {
 			return;
@@ -56,9 +35,34 @@ game.controller('GameCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 	};
 	
 	$scope.stop = function() {
-//		clearTiles();
 		$scope.time = 0;
 		$timeout.cancel(stop);
 		clearInterval(generator);
 	};
+
+	$scope.countdown();
 }]);
+
+game.service('Tiles', function() {
+	function createTile() {
+		var goods = Math.floor((Math.random()*4));
+		var tile = {
+				received: false,
+				goods: goods
+		};
+		
+		return tile;
+	};
+	
+	this.generateTiles = function(length) {
+		var tiles = [];
+		
+		for (var i = 0; i < length; i++) {
+			var tile = createTile();
+			tiles.push(tile);
+		}
+		
+		return tiles;
+	};
+	
+});
