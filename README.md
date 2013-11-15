@@ -3,10 +3,7 @@
 # COLLECTION DASH
 This is a planned web application where anyone can play a timer-based game. 
 The goal is to collect as many as possible packages appearing in the field.
-After the end of 60 seconds, the score will be stored in a database.
-*The accumulated score of all games has a corresponding monetary amount
- which will be donated to Red Cross.*
-
+After the end of 60 seconds, the score will be displayed.
 
 ## Usage
 TODO
