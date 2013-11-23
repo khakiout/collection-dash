@@ -9,7 +9,7 @@ game.controller('GameCtrl', ['$scope', '$timeout', 'Tiles', function($scope, $ti
 	$scope.tiles = Tiles.generateTiles(tilesLength);
 	var generator = setInterval(function(){
 		$scope.tiles = Tiles.generateTiles(tilesLength);
-    }, 1000);
+    }, 2000);
 
 	var stop;
 	$scope.countdown = function() {
@@ -30,8 +30,8 @@ game.controller('GameCtrl', ['$scope', '$timeout', 'Tiles', function($scope, $ti
 		if (tile.goods != 0) {
 			$scope.score++;
 			tile.goods = 0;
+			tile.received = true;
 		}
-		tile.received = true;
 	};
 	
 	$scope.stop = function() {

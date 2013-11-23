@@ -5,18 +5,32 @@
 	background: lightgreen;
 	width: 375px;
 }
-#field .tiles.tile1 {
+.tiles.tile1 {
 	background: url(../img/1.png) no-repeat 50%;
 }
-#field .tiles.tile2 {
+.tiles.tile2 {
 	background: url(../img/2.png) no-repeat 50%;
 }
-#field .tiles.tile3 {
+.tiles.tile3 {
 	background: url(../img/3.png) no-repeat 50%;
 }
-#field .tiles {
+.tiles {
 	background: lightgreen;
 	display: inline-block;
 	height: 75px;
 	width: 75px;
+}
+.tiles.tile1,
+.tiles.tile2,
+.tiles.tile3 {
+	cursor: pointer;
+}
+.tiles.tile1:hover,
+.tiles.tile2:hover,
+.tiles.tile3:hover {
+	background-color: orange;
+}
+.tiles.checked {
+	background: url(../img/check.png) no-repeat 50%;
+	background-color: green;
 }

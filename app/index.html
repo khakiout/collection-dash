@@ -27,7 +27,7 @@
     		</div>
 	    	<div id="field">
 	    		<div data-ng-repeat="tile in tiles" class="tiles tile{{tile.goods}}" 
-	    			data-ng-click="receive(tile)">
+	    			data-ng-click="receive(tile)" data-ng-class="{checked:tile.received}">
 <!-- 	    			{{tile.goods}} -->
 	    		</div>
 	    	</div>
