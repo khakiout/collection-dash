@@ -3,7 +3,9 @@
 }
 #field {
 	background: lightgreen;
-	width: 375px;
+	margin: 0 auto;
+	padding: 2px;
+	width: 400px;
 }
 .tiles.tile1 {
 	background: url(../img/1.png) no-repeat 50%;
@@ -16,8 +18,10 @@
 }
 .tiles {
 	background: lightgreen;
+	border-radius: 50%;
 	display: inline-block;
 	height: 75px;
+	margin: 0 2px;
 	width: 75px;
 }
 .tiles.tile1,

@@ -10,30 +10,38 @@
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="lib/bootstrap/css/bootstrap-glyphicons.css" rel="stylesheet"> -->
-    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->    
     <link href="css/style.css" rel="stylesheet">
   </head>
 
-  <body data-ng-controller="GameCtrl">
-    <div id="main_wrapper">
-    	<div id="game">
-    		<div>
-    			Score: {{score}}<br/>
-    			Time: {{time}}<br/>
-    			<button data-ng-click="stop()">Stop</button>
-    			<div data-ng-show="time==0">GAME OVER</div>
-    		</div>
+  <body data-ng-controller="GameCtrl" class="container">
+  	<header class="page-header">
+  		<h1>COLLECTION DASH</h1>
+  	</header>
+  	
+    <div id="main_wrapper" class="row">
+    	<div id="game" class="col-sm-6 col-md-6">
 	    	<div id="field">
 	    		<div data-ng-repeat="tile in tiles" class="tiles tile{{tile.goods}}" 
 	    			data-ng-click="receive(tile)" data-ng-class="{checked:tile.received}">
 <!-- 	    			{{tile.goods}} -->
 	    		</div>
 	    	</div>
-	    	<div>Icons from Icojam (<a href="http://www.icojam.com/blog/?p=589#more-589" target="_blank">link</a>)</div>
     	</div>
+    	<div class="col-sm-6 col-md-6">
+	    	<div>
+	   			Score: {{score}}<br/>
+	   			Time: {{time}}<br/>
+	   			<button data-ng-click="stop()" class="btn btn-danger">Stop</button>
+	   			<div>
+	   				<span class="label label-warning" data-ng-show="time==0">GAME OVER!!</span>
+   				</div>
+	   		</div>
+   		</div>
     </div>
+   	<div>Icons from Icojam (<a href="http://www.icojam.com/blog/?p=589#more-589" target="_blank">link</a>)</div>
 
     <script type="text/javascript" src="lib/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="lib/angular/angular.min.js"></script>
