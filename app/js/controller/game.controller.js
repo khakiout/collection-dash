@@ -4,7 +4,7 @@ game.controller('GameCtrl', ['$scope', '$timeout', 'Tiles', function($scope, $ti
 	var tilesLength = 25;
 	$scope.tiles = [];
 	$scope.score = 0;
-	$scope.time = 60;
+	$scope.time = 30;
 	
 	$scope.tiles = Tiles.generateTiles(tilesLength);
 	var generator = setInterval(function(){
