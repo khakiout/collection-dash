@@ -5,14 +5,19 @@ game.controller('GameCtrl', ['$scope', '$timeout', 'Tiles', function($scope, $ti
 	$scope.tiles = [];
 	$scope.score = 0;
 	$scope.time = 30;
+	$scope.tiles = [];
 	
-	$scope.tiles = Tiles.generateTiles(tilesLength);
-	var generator = setInterval(function(){
-		$scope.tiles = Tiles.generateTiles(tilesLength);
-    }, 2000);
+	var generator = initializeGenerator();
 
 	var stop;
+	$scope.start = function() {
+		$scope.time = 30;
+		$scope.countdown();
+		generator = initializeGenerator();
+	};
+	
 	$scope.countdown = function() {
+		$scope.tiles = Tiles.generateTiles(tilesLength);
 	    stop = $timeout(function() {
 	      if ($scope.time >= 1) {
 	    	  $scope.time--;
@@ -23,6 +28,7 @@ game.controller('GameCtrl', ['$scope', '$timeout', 'Tiles', function($scope, $ti
 	      }
 	    }, 1000);
 	  };
+	  
 	$scope.receive = function(tile) {
 		if ($scope.time == 0) {
 			return;
@@ -40,7 +46,13 @@ game.controller('GameCtrl', ['$scope', '$timeout', 'Tiles', function($scope, $ti
 		clearInterval(generator);
 	};
 
-	$scope.countdown();
+	function initializeGenerator() {
+		var generator = setInterval(function(){
+			$scope.tiles = Tiles.generateTiles(tilesLength);
+	    }, 3000);
+
+		return generator;
+	}
 }]);
 
 game.service('Tiles', function() {

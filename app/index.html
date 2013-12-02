@@ -6,7 +6,7 @@
     <meta name="description" content="A timer based game wherein you must collect all items in the field for 60 seconds.">
     <meta name="author" content="Ruen Zapanta">
 
-    <title>Collector Dash</title>
+    <title>Collection Dash</title>
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="lib/bootstrap/css/bootstrap-glyphicons.css" rel="stylesheet"> -->
@@ -16,7 +16,7 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
 
-  <body data-ng-controller="GameCtrl" class="container">
+  <body data-ng-controller="GameCtrl" class="container" data-ng-init="countdown()">
   	<header class="page-header">
   		<h1>COLLECTION DASH</h1>
   	</header>
@@ -34,7 +34,8 @@
 	    	<div>
 	   			Score: {{score}}<br/>
 	   			Time: {{time}}<br/>
-	   			<button data-ng-click="stop()" class="btn btn-danger">Stop</button>
+	   			<button data-ng-click="stop()" class="btn btn-danger" data-ng-show="time>0">Stop</button>
+	   			<button data-ng-click="start()" class="btn btn-primary" data-ng-show="time==0">Start</button>
 	   			<div>
 	   				<span class="label label-warning" data-ng-show="time==0">GAME OVER!!</span>
    				</div>
