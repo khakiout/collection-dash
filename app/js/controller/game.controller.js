@@ -10,6 +10,7 @@ game.controller('GameCtrl', ['$scope', '$timeout', 'Tiles', function($scope, $ti
 	var generator;
 	var stop;
 	$scope.start = function() {
+		$scope.score = 0;
 		$scope.tiles = Tiles.generateTiles(tilesLength);
 		$scope.time = 30;
 		$scope.countdown();
@@ -40,7 +41,6 @@ game.controller('GameCtrl', ['$scope', '$timeout', 'Tiles', function($scope, $ti
 	};
 	
 	$scope.stop = function() {
-		$scope.score = 0;
 		$scope.time = 0;
 		$timeout.cancel(stop);
 		$timeout.cancel(generator);
