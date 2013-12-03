@@ -34,11 +34,13 @@
     	</div>
     	<div class="col-sm-6 col-md-6">
 	    	<div>
-	   			Score: {{score}}<br/>
-	   			Time: {{time}}<br/>
+	   			<div class="score">Score: <span>{{score}}</span></div>
+	   			<div>Time: {{time}}</div>
+	   			<div>
 	   			<button data-ng-click="stop()" class="btn btn-danger" data-ng-show="time>0">Stop</button>
 	   			<button data-ng-click="start()" class="btn btn-primary" data-ng-show="time==0">Start</button>
-	   			<div>
+	   			</div>
+	   			<div class="game-over">
 	   				<span class="label label-warning" data-ng-show="time==0">GAME OVER!!</span>
    				</div>
 	   		</div>
