@@ -40,8 +40,10 @@
 	   			<button data-ng-click="stop()" class="btn btn-danger" data-ng-show="time>0">Stop</button>
 	   			<button data-ng-click="start()" class="btn btn-primary" data-ng-show="time==0">Start</button>
 	   			</div>
-	   			<div class="game-over">
-	   				<span class="label label-warning" data-ng-show="time==0">GAME OVER!!</span>
+	   			<div data-ng-show="time==0" class="game-over">
+            <span class="label label-warning">GAME OVER!!</span>
+            <br><br>
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=I got a score of {{score}} at Collection Dash!" data-size="large">Share your score!</a>  
    				</div>
 	   		</div>
    		</div>
@@ -56,5 +58,23 @@
     <!-- App Libs -->
     <script src="js/app.js"></script>
     <script src="js/controller/game.controller.js"></script>
+    <script>
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+     
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+     
+      return t;
+    }(document, "script", "twitter-wjs"));
+    </script>
   </body>
 </html>
